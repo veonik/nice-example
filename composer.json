@@ -1,0 +1,7 @@
+{
+    "require": {
+        "tyler-sommer/nice": "dev-master",
+        "nikic/fast-route": "dev-master",
+		"doctrine/dbal": "~2.4"
+    }
+}
