@@ -2,6 +2,13 @@
     "require": {
         "tyler-sommer/nice": "dev-master",
         "nikic/fast-route": "dev-master",
-		"doctrine/dbal": "~2.4"
+        "doctrine/dbal": "~2.4",
+        "nice-php/doctrine-key-value": "1.0.x-dev",
+        "doctrine/key-value-store": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Example\\": "src/"
+        }
     }
 }
