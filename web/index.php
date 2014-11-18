@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Nice\Application;
 use Nice\Router\RouteCollector;
 use Nice\Extension\DoctrineDbalExtension;
+use Nice\Extension\LogExtension;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -37,12 +38,25 @@ $app->appendExtension(new DoctrineDbalExtension(array(
         'path' => '%app.root_dir%/sqlite.db'
     )
 )));
+$app->appendExtension(new LogExtension(array(
+    'channels' => array(
+        'default' => array(
+            'handler' => 'stream',
+            'level' => 100, // Debug
+            'options' => array(
+                'file' => '%app.log_dir%/dev.log'
+            )
+        )
+    )
+)));
 
 \Doctrine\Common\Annotations\AnnotationRegistry::registerAutoloadNamespace('Doctrine\KeyValueStore', __DIR__ . '/../vendor/doctrine/key-value-store/lib');
 
 // Configure your routes
 $app->set('routes', function (RouteCollector $r) {
     $r->addRoute('GET', '/', function (Application $app, Request $request) {
+        $app->get('logger.default')->debug('This is a test');
+
         return new Response('Hello, world');
     });
 
