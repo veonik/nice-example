@@ -2,7 +2,7 @@
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Nice\Application;
+use Example\Application;
 use Nice\Router\RouteCollector;
 use Nice\Extension\LogExtension;
 use Nice\Extension\CacheExtension;
@@ -18,46 +18,11 @@ Symfony\Component\Debug\Debug::enable();
 
 $app = new Application('dev', true, false);
 $app->appendExtension(new SessionExtension());
-$app->appendExtension(new CacheExtension(array(
-    'connections' => array(
-        'default' => array(
-            'driver' => 'redis',
-            'options' => array(
-                'socket' => '/tmp/redis.sock'
-            )
-        )
-    )
-)));
-$app->appendExtension(new DoctrineKeyValueExtension(array(
-    'key_value' => array(
-        'mapping' => array(
-            'paths' => array('%app.root_dir/src')
-        )
-    )
-)));
-$app->appendExtension(new DoctrineDbalExtension(array(
-    'database' => array(
-        'driver' => 'pdo_sqlite',
-        'path' => '%app.root_dir%/sqlite.db'
-    )
-)));
-$app->appendExtension(new LogExtension(array(
-    'channels' => array(
-        'default' => array(
-            'handler' => 'stream',
-            'level' => 100, // Debug
-            'options' => array(
-                'file' => '%app.log_dir%/dev.log'
-            )
-        )
-    )
-)));
-$app->appendExtension(new SecurityExtension(array(
-    'firewall' => '/messages',
-    'authenticator' => array(
-        'type' => 'closure'
-    )
-)));
+$app->appendExtension(new CacheExtension());
+$app->appendExtension(new DoctrineKeyValueExtension());
+$app->appendExtension(new DoctrineDbalExtension());
+$app->appendExtension(new LogExtension());
+$app->appendExtension(new SecurityExtension());
 
 \Doctrine\Common\Annotations\AnnotationRegistry::registerAutoloadNamespace('Doctrine\KeyValueStore', __DIR__ . '/../vendor/doctrine/key-value-store/lib');
 

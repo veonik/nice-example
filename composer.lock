@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "79862e1e4535a5008ecc052ae5967608",
+    "hash": "a76b4b748a30ea1cbafba92702523a69",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -766,12 +766,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nice-php/framework.git",
-                "reference": "23aabe3a93f5a9125220d27f5c4da470b9bf3245"
+                "reference": "58880c0b443b078cc7f73947510218554d496b63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nice-php/framework/zipball/23aabe3a93f5a9125220d27f5c4da470b9bf3245",
-                "reference": "23aabe3a93f5a9125220d27f5c4da470b9bf3245",
+                "url": "https://api.github.com/repos/nice-php/framework/zipball/58880c0b443b078cc7f73947510218554d496b63",
+                "reference": "58880c0b443b078cc7f73947510218554d496b63",
                 "shasum": ""
             },
             "require": {
@@ -807,7 +807,7 @@
                 "MIT"
             ],
             "description": "A nice PHP microframework",
-            "time": "2014-12-24 13:26:35"
+            "time": "2014-12-24 13:33:32"
         },
         {
             "name": "nice/security",
@@ -1374,6 +1374,53 @@
             "description": "Symfony HttpKernel Component",
             "homepage": "http://symfony.com",
             "time": "2014-12-03 16:40:43"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "v2.6.1",
+            "target-dir": "Symfony/Component/Yaml",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Yaml.git",
+                "reference": "3346fc090a3eb6b53d408db2903b241af51dcb20"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/3346fc090a3eb6b53d408db2903b241af51dcb20",
+                "reference": "3346fc090a3eb6b53d408db2903b241af51dcb20",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Yaml\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony Yaml Component",
+            "homepage": "http://symfony.com",
+            "time": "2014-12-02 20:19:20"
         },
         {
             "name": "twig/twig",
