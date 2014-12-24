@@ -1,11 +1,12 @@
 {
     "require": {
-        "tyler-sommer/nice": "dev-master",
-        "nikic/fast-route": "dev-master",
+        "nice/framework": "1.0.x-dev",
         "nice/doctrine-key-value": "1.0.x-dev",
         "doctrine/key-value-store": "dev-master",
-        "nice/twig": "dev-master",
-        "nice/doctrine-dbal": "dev-master",
+        "nice/twig": "1.0.x-dev",
+        "nice/doctrine-dbal": "1.0.x-dev",
+        "nice/doctrine-cache": "1.0.x-dev",
+        "nice/security": "1.0.x-dev",
         "monolog/monolog": "~1.11"
     },
     "autoload": {
