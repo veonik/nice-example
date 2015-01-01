@@ -2,21 +2,23 @@
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Example\Application;
-use Nice\Router\RouteCollector;
+use Nice\Application;
+use Nice\DependencyInjection\ConfigurationProvider\FileConfigurationProvider;
 use Nice\Extension\LogExtension;
 use Nice\Extension\CacheExtension;
 use Nice\Extension\DoctrineDbalExtension;
 use Nice\Extension\DoctrineKeyValueExtension;
 use Nice\Extension\SecurityExtension;
 use Nice\Extension\SessionExtension;
+use Nice\Router\RouteCollector;
 
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__.'/../vendor/autoload.php';
 
 // Enable Symfony debug error handlers
 Symfony\Component\Debug\Debug::enable();
 
 $app = new Application('dev', true, false);
+$app->setConfigurationProvider(new FileConfigurationProvider(__DIR__.'/../config.yml'));
 $app->appendExtension(new SessionExtension());
 $app->appendExtension(new CacheExtension());
 $app->appendExtension(new DoctrineKeyValueExtension());
@@ -24,7 +26,7 @@ $app->appendExtension(new DoctrineDbalExtension());
 $app->appendExtension(new LogExtension());
 $app->appendExtension(new SecurityExtension());
 
-\Doctrine\Common\Annotations\AnnotationRegistry::registerAutoloadNamespace('Doctrine\KeyValueStore', __DIR__ . '/../vendor/doctrine/key-value-store/lib');
+\Doctrine\Common\Annotations\AnnotationRegistry::registerAutoloadNamespace('Doctrine\KeyValueStore', __DIR__.'/../vendor/doctrine/key-value-store/lib');
 
 // Configure your routes
 $app->set('routes', function (RouteCollector $r) {
@@ -32,7 +34,7 @@ $app->set('routes', function (RouteCollector $r) {
         $app->get('logger.default')->debug('This is a test');
         $url = $app->get('router.url_generator')->generate('hello', array('name' => 'Tyler'));
 
-        return new Response('Hello, world. <a href="' . $url . '">Hello, Tyler.</a>');
+        return new Response('Hello, world. <a href="'.$url.'">Hello, Tyler.</a>');
     });
 
     $r->map('/last-visit', null, function (Application $app, Request $request) {
@@ -41,7 +43,7 @@ $app->set('routes', function (RouteCollector $r) {
         $lastVisit = $session->get('last-visited', 'Never');
         $session->set('last-visited', date('Y-m-d'));
 
-        return new Response('You last visited on: ' . $lastVisit);
+        return new Response('You last visited on: '.$lastVisit);
     });
 
     $r->map('/login', null, function (Application $app, Request $request) {
@@ -52,7 +54,7 @@ $app->set('routes', function (RouteCollector $r) {
         $cache = $app->get('cache.default');
         $cache->save('last-hello', $name);
 
-        return new Response('Hello, ' . $name . '!');
+        return new Response('Hello, '.$name.'!');
     });
 
     $r->map('/last-hello', null, function (Application $app) {
@@ -63,12 +65,13 @@ $app->set('routes', function (RouteCollector $r) {
             return new Response('I have not said "Hello" to anyone :(');
         }
 
-        return new Response('Last said hello to: ' . $name);
+        return new Response('Last said hello to: '.$name);
     });
 
     $r->map('/messages', null, function (Application $app, Request $request) {
         $conn = $app->get('doctrine.dbal.database_connection');
         $results = $conn->executeQuery("SELECT * FROM messages")->fetchAll();
+
         return new \Symfony\Component\HttpFoundation\JsonResponse($results);
     });
 
@@ -77,6 +80,7 @@ $app->set('routes', function (RouteCollector $r) {
         $person = new \Example\Person($name, $age);
         $em->persist($person);
         $em->flush();
+
         return new Response('Person added!');
     });
 
@@ -85,14 +89,14 @@ $app->set('routes', function (RouteCollector $r) {
 
         $person = $em->find('Example\Person', $name);
         if (!$person) {
-            return new Response('Unable to find ' . $name);
+            return new Response('Unable to find '.$name);
         }
 
-        return new Response($name . ' is ' . $person->getAge() . ' years old!');
+        return new Response($name.' is '.$person->getAge().' years old!');
     });
 });
 
-$app->set('security.authenticator', function(Request $request) {
+$app->set('security.authenticator', function (Request $request) {
     return $request->get('user') === 'tom';
 });
 
