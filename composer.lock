@@ -562,16 +562,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.11.0",
+            "version": "1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "ec3961874c43840e96da3a8a1ed20d8c73d7e5aa"
+                "reference": "1fbe8c2641f2b163addf49cc5e18f144bec6b19f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/ec3961874c43840e96da3a8a1ed20d8c73d7e5aa",
-                "reference": "ec3961874c43840e96da3a8a1ed20d8c73d7e5aa",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1fbe8c2641f2b163addf49cc5e18f144bec6b19f",
+                "reference": "1fbe8c2641f2b163addf49cc5e18f144bec6b19f",
                 "shasum": ""
             },
             "require": {
@@ -585,7 +585,7 @@
                 "aws/aws-sdk-php": "~2.4, >2.4.8",
                 "doctrine/couchdb": "~1.0@dev",
                 "graylog2/gelf-php": "~1.0",
-                "phpunit/phpunit": "~3.7.0",
+                "phpunit/phpunit": "~4.0",
                 "raven/raven": "~0.5",
                 "ruflin/elastica": "0.90.*",
                 "videlalvaro/php-amqplib": "~2.4"
@@ -604,7 +604,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11.x-dev"
+                    "dev-master": "1.12.x-dev"
                 }
             },
             "autoload": {
@@ -630,7 +630,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-09-30 13:30:58"
+            "time": "2014-12-29 21:29:35"
         },
         {
             "name": "nice/doctrine-cache",
@@ -724,12 +724,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nice-php/doctrine-key-value.git",
-                "reference": "ff74186d0203b05f3b616328bb4ac7911bcbe66a"
+                "reference": "12cce0e6216a1bdeefc7f28f84840cc405756d5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nice-php/doctrine-key-value/zipball/ff74186d0203b05f3b616328bb4ac7911bcbe66a",
-                "reference": "ff74186d0203b05f3b616328bb4ac7911bcbe66a",
+                "url": "https://api.github.com/repos/nice-php/doctrine-key-value/zipball/12cce0e6216a1bdeefc7f28f84840cc405756d5c",
+                "reference": "12cce0e6216a1bdeefc7f28f84840cc405756d5c",
                 "shasum": ""
             },
             "require": {
@@ -758,7 +758,7 @@
                 "MIT"
             ],
             "description": "Integrates Doctrine KeyValueStore with Nice PHP framework",
-            "time": "2014-12-14 15:04:36"
+            "time": "2014-12-24 14:04:07"
         },
         {
             "name": "nice/framework",
@@ -766,12 +766,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nice-php/framework.git",
-                "reference": "58880c0b443b078cc7f73947510218554d496b63"
+                "reference": "c98f36d50a7eb6e39d4edcde4e9896e05dd9419b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nice-php/framework/zipball/58880c0b443b078cc7f73947510218554d496b63",
-                "reference": "58880c0b443b078cc7f73947510218554d496b63",
+                "url": "https://api.github.com/repos/nice-php/framework/zipball/c98f36d50a7eb6e39d4edcde4e9896e05dd9419b",
+                "reference": "c98f36d50a7eb6e39d4edcde4e9896e05dd9419b",
                 "shasum": ""
             },
             "require": {
@@ -807,7 +807,7 @@
                 "MIT"
             ],
             "description": "A nice PHP microframework",
-            "time": "2014-12-24 13:33:32"
+            "time": "2015-01-01 00:26:41"
         },
         {
             "name": "nice/security",
@@ -1424,16 +1424,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.16.2",
+            "version": "v1.16.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "42f758d9fe2146d1f0470604fc05ee43580873fc"
+                "reference": "6dc11a1e8ecfc30e2c68aaeb218148409d8e68af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/42f758d9fe2146d1f0470604fc05ee43580873fc",
-                "reference": "42f758d9fe2146d1f0470604fc05ee43580873fc",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/6dc11a1e8ecfc30e2c68aaeb218148409d8e68af",
+                "reference": "6dc11a1e8ecfc30e2c68aaeb218148409d8e68af",
                 "shasum": ""
             },
             "require": {
@@ -1468,7 +1468,7 @@
                 },
                 {
                     "name": "Twig Team",
-                    "homepage": "https://github.com/fabpot/Twig/graphs/contributors",
+                    "homepage": "http://twig.sensiolabs.org/contributors",
                     "role": "Contributors"
                 }
             ],
@@ -1477,7 +1477,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-10-17 12:53:44"
+            "time": "2014-12-25 19:58:19"
         }
     ],
     "packages-dev": [],
